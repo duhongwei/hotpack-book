@@ -1,2 +1,21 @@
-# hotpack-book
- Hotpack is a fast and simple web application bundler
+# 简介
+
+hotpack专门为开发纯前端网站而设计。服务端只负责提供数据API。设计思想是顺序处理task列表。
+
+和其它工具相比，最大的亮点是 **0 重复**，把缓存做到极致。比如一个项目有 100 个源文件，第一次，这 100 个文件都会被编译 然后修改了 1 个文件，再编译的时候，就只会编译这 1 个文件。
+
+hotpack的特点是简单易用，速度非常快。
+
+开发环境尽量用原码，不打包，不编译，方便调试。
+
+# Features
+
+- 增量编译，记录每个源文件版本，只编译内容有修改的文件
+- 默认支持 vue单文件编译，文件压缩功能
+- 开箱即用的 ES6转ES5,postCSS,polyfill
+- 内置 ES6 module 语法支持
+- 内置了对热重载的支持
+- 快速初始化 react 和 vue 项目
+
+
+[源码地址](https://github.com/duhongwei/hotpack)
