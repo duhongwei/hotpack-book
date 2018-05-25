@@ -24,20 +24,18 @@ hotpack 可以导入通过npm 安装的模块。
 ``` js
 //不带后缀名，也不带路径，被认为是node 模块
 import Vue from 'vue'
+``` 
+
+>为了简洁高效，需要在配置中直接指定相对于`node_module`的文件名
+
+比如要引入 vue 的 node 模块
+``` js
+module.exports = {
+"node": {
+    "vue": "vue/dist/vue.esm.js"
+ }
+}
 ```
-导入 node module 的过程如下（省略异常处理）
-
-1. 读取package.json 中的 dependence 中的所有模块，循环加载每一个模块。
-1. 查看 配置中的 alias.node 如果其中指定了文件名，直接读文件，否则进入下一步。 
-2. 在程序运行目录下的 node_modules 中查找 相应的 package.json
-3. 在 package.json 中查找 module 项指定的文件，如果有，读文件，否则失败
-
->从处理过程可以看出，和产品无关的模块不要放在 dependence,只是辅助开发的模块必须放在 devDependence 
-
->为了简洁高效，alias.node 中可以指定的文件需要满足条件
->1. 没有依赖，也就是说只会导出这一个文件
->2. es6 module 或 umd 或 amd
-
 
 ## 其它资源
 
