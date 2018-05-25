@@ -74,3 +74,12 @@ Html文件 是 http 请求 的入口文件。不过在开发阶段，html 只是
 </body>
 </html>
 ```
+## 动态引入资源
+
+比如 动态引用 user.js
+
+``` js
+fucntion load(){
+  let user=()=>import('./user.js')
+}
+```

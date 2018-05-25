@@ -23,12 +23,6 @@ hotpack init vue my-vue
 cd my-vue
 npm install
 hotpack dev
-
-#也可以建立 react 项目
-hotpack init react my-react
-cd my-react
-npm install
-hotpack dev
 ```
 默认会启动web服务和socket服务,socket服务用来支持热重载，如果不需要，可以不开启
 

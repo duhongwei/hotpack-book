@@ -12,47 +12,35 @@
     "clean": false,
     //build or process,区别是 process 不会输出文件到 destionation 目录
     "method": 'build',
-	//脚本打包定义，
-    "scriptPackage": [],
-	//样式打包定义
-    "stylePackage": [],
-    //需要忽略的文件
-    "ignore": function (file) {
-      if (/^\./.test(basename(file))) {
-        return true
-      }
-      else {
-        return false
-      }
-	 "before":[]   
-    }
+	//打包定义，
+    "packages": []
 }
 // config/dev.js 开发环境没有展示的默认配置
 {
-	"debug:true，
     "before": [
-      { 'prepare': true },
-      { 'toString': true },
+      { 'ensureString': true },
+      { 'node': true },
+      { "vue": true, },
+      { 'runtime': true },
       { 'slim': true },
-      { "vue": true, }
 
     ],
     "after": [
-      { "parseJs": true },
+     { "parseJs": true },
       { 'html': true }
     ]
 }
 // config/pro.js 开发环境没有展示的默认配置
 {
-"debug":false,
 "before": [
-      { 'prepare': true },
-      { 'toString': true },
+      { 'ensureString': true },
       { 'slim': "image" },
       { 'upload': "image" },
       { 'replaceImage': true },
+      { 'node': true },
+      { 'vue': true },
+      { 'runtime': true },
       { 'slim': true },
-      { 'vue': true }
     ],
 "after": [
       { 'parseJs': true },
@@ -75,10 +63,8 @@ plugins=before.concat(plugins).concat(after)
 ```
 为什么说有些插件的执行顺序很重要呢？因为hotpack的执行是沿一个方向进行的，而且不可逆。也没有事件机制可以改变执行路线。所以就需要合理的顺序来实现缓存等功能。
 
-开始=> 执行plugin1=> 执行plugin2 =>结束
 
 ----------
 
-感觉还有很多东西需要讲，但又不知道从哪里说起。
 
 有果有问题可以 [提issue](https://github.com/duhongwei/hotpack/issues)

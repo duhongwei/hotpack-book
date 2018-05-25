@@ -1,25 +1,24 @@
 {
-  "name": "hotloadjs-book",
+  "name": "hotpack-book",
   "version": "0.1.0",
-  "description": "book for hotloadjs",
+  "description": "book for hotpack bundler",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/duhongwei/hotloadjs-book.git"
+    "url": "https://github.com/duhongwei/hotpack-book.git"
   },
   "keywords": [
-    "hotloadjs"
+    "bundler"
   ],
   "author": "duhongwei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duhongwei/hotloadjs-book/issues"
+    "url": "https://github.com/duhongwei/hotpack-book/issues"
   },
-  "homepage": "https://github.com/duhongwei/hotloadjs-book#readme",
+  "homepage": "https://github.com/duhongwei/hotpack-book#readme",
   "devDependencies": {
-    "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-github": "^3.0.0"
+    "gitbook-plugin-edit-link": "^2.0.2"
   }
 }

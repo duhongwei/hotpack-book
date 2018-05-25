@@ -1,20 +1,18 @@
 {
-	
-	"plugins": ["edit-link","github"],
-	"pluginsConfig": {
-		"edit-link": {
-			"base": "https://github.com/duhongwei/hotpack-book/edit/master",
-			"label": "Edit This Page"
-		},
-		"github": {
-			"url": "https://github.com/duhongwei/hotpack"
-		}
-	},
-	"language": "zh-CN", 
-	"links": {
-		"sharing": {
-			"facebook": false,
-			"twitter": false
-		}
-	}
+  "plugins": [
+    "edit-link"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/duhongwei/hotpack-book/edit/master",
+      "label": "Edit This Page"
+    }
+  },
+  "language": "zh-CN",
+  "links": {
+    "sharing": {
+      "facebook": false,
+      "twitter": false
+    }
+  }
 }
