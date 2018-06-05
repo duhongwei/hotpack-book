@@ -40,17 +40,16 @@ destination:'./dist'
 默认打包把所有文件打成一个文件输出。
 ``` js
 module.exports={
-  "scriptPackage": [],    //脚本打包定义
-  "stylePackage": [],     //样式打包定义
+  "packages": [],    //打包定义
 }
 ```
-比如css打包定义为
+比如打包定义为
 
 ``` js
  plugins:[
 	{
 		name:"html",
-		stylePackage:[
+		packages:[
 			 ["common.css","layout.css"],
 			 ["module2.css"]
 		]
