@@ -8,4 +8,4 @@
 
 ----------
 * [作者：杜宏伟](https://www.duhongwei.site)
-* [授权：署名-非商用许可证](https://creativecommons.org/licenses/by-nc/4.0/)
+* [授权：署名 4.0 国际 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.zh)
