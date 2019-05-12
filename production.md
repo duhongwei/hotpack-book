@@ -1,61 +1,61 @@
-执行 `hotpack build` 会设置  环境变量 `NODE_ENV=production`，因为很多工具都会根据它来判断环境
+执行 `spack pro` 会设置  环境变量 `NODE_ENV=production`，因为很多工具都会根据它来判断环境
 
 ``` bash
-hotpack build
+spack pro
 ```
-这将关闭监听模式和热模块替换。还会开启压缩来减少输出包文件的大小。 JavaScript 用 uglify-es ，CSS 用 clean-css 
-
-### 关闭压缩
-
+发布的时候默认是不启动server的
+###  web server
+编译完成后开启server
 ``` bash
-hotpack build --no-minify
-```
-
-### 关闭 web server
-
-``` bash
-hotpack build --no-server
+hotpack pro -s
 ```
 
-### 关闭缓存
+### 清除缓存
 
 ``` bash
-hotpack build --no-cache
+hotpack spack -c
 ```
 
 ### 输出目录
 
 ``` js
 module.exports={
-//开发环境是 ./dev
-destination:'./dist'
+//开发环境是 dev
+destination:'dist'
 ```
+
+### publicPath ###
+有时可能不希望把文件直接发布到服务器的根目录，而是一个特定的路径。
+``` js
+module.exports = {
+  publicPath: 'spack'
+}
+```
+所有的生成的文件都会发布到 spack目录，web目录也会变成 `/spack/`
+
 ### 打包
 打包，就是把多个文件合成一个文件一起输出。
-
-位置在 `.hotpack/config/index.js`
-
-虽然在生产环境中才会涉及打包,放在公共配置中是为了让开发环境也执行打包定义,不实际打包。因为执行打包定义可能会增加资源，所以开发环境执行打包定义是为了让开发环境加载的Js，css和生产环境是一样的。
 
 默认打包把所有文件打成一个文件输出。
 ``` js
 module.exports={
-  "packages": [],    //打包定义
+  "packages": [],    //默认打包定义
 }
 ```
-比如打包定义为
+为了复用浏览器的缓存机制，可以把资源打成多个包，如何打包完全可以自定义。
+
+比如想把 css 打成两个凶
 
 ``` js
- plugins:[
-	{
-		name:"html",
-		packages:[
+module.exports={
+ packages:[
 			 ["common.css","layout.css"],
 			 ["module2.css"]
 		]
-	}
+}
+
 ```
-目前的css列表为
+css列表为
 
 ``` js
 ['common.css','module1.css','module2.css','module3.css','page.css']
