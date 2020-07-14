@@ -1,4 +1,4 @@
-执行 `spack pro` 会设置  环境变量 `NODE_ENV=production`，因为很多工具都会根据它来判断环境
+执行 `hotpack pro` 会设置  环境变量 `NODE_ENV=production`，因为很多工具都会根据它来判断环境
 
 ``` bash
 spack pro
@@ -12,6 +12,8 @@ hotpack pro -s
 
 ### 清除缓存
 
+一般情况下不需要清除缓存，因为一旦清除，所有文件必须重新编译，速度会大大降低。
+
 ``` bash
 hotpack spack -c
 ```
@@ -19,36 +21,36 @@ hotpack spack -c
 ### 输出目录
 
 ``` js
-module.exports={
+{
 //开发环境是 dev
-destination:'dist'
+dist:'dist'
 ```
-
 ### publicPath ###
-有时可能不希望把文件直接发布到服务器的根目录，而是一个特定的路径。
+publicPath的意义是在一个web根目录下发布多版本的产品。
+
 ``` js
 module.exports = {
-  publicPath: 'spack'
+  publicPath: '2020'
 }
 ```
-所有的生成的文件都会发布到 spack目录，web目录也会变成 `/spack/`
+所有的生成的文件都会发布到 2020目录，web根目录也会变成 `/2020/`
 
 ### 打包
 打包，就是把多个文件合成一个文件一起输出。
 
-默认打包把所有文件打成一个文件输出。
+默认打包把所有文件分成一组打成一个文件输出。
 ``` js
-module.exports={
-  "packages": [],    //默认打包定义
+{
+  "group": [],    //默认打包定义
 }
 ```
-为了复用浏览器的缓存机制，可以把资源打成多个包，如何打包完全可以自定义。
+为了利用浏览器的缓存机制，可以把资源打成多个包
 
-比如想把 css 打成两个凶
+比如想把 css 打成两个包
 
 ``` js
-module.exports={
- packages:[
+{
+ group:[
 			 ["common.css","layout.css"],
 			 ["module2.css"]
 		]
